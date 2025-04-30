@@ -113,3 +113,128 @@ const loginWithGitHub = async () => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.login-page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 80px);
+  overflow: hidden;
+}
+
+.login-container {
+  flex: 1;
+  display: flex;
+  width: 100vw;
+  height: 100%;
+}
+
+.image-section {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.login-box {
+  width: 50%;
+  max-height: 100%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-left: 1px solid #dbdbdb;
+}
+
+.logo {
+  margin-bottom: 1.5rem;
+  width: 2rem;
+  height: auto;
+  object-fit: contain;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  gap: 0.75rem;
+}
+
+.input {
+  background: #fafafa;
+  border: 1px solid #dbdbdb;
+  border-radius: 0.25rem;
+  padding: 0.56rem 0.5rem;
+  font-size: 14px;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #a8a8a8;
+}
+
+.toggle-text,
+.resetpassword {
+  margin-top: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.error-message {
+  color: red;
+}
+
+.login-form :deep(button),
+.github-btn {
+  all: unset;
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+  color: white;
+  border: 1px solid #ccc;
+}
+
+.login-form :deep(button):hover,
+.github-btn:hover {
+  background-color: #eaeaea;
+  transform: translateY(-1px);
+}
+
+.login-form :deep(button:disabled),
+.github-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.github-btn {
+  background-color: #e2c388;
+  color: #333;
+  border: none;
+}
+
+.github-btn:hover {
+  background-color: #d6b97c;
+}
+</style>
