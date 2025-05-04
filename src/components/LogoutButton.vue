@@ -31,3 +31,20 @@ const handleLogout = async () => {
     </svg>
   </button>
 </template>
+
+<style scoped>
+.logout-icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.3rem;
+  color: #555;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.icon {
+  width: 2rem;
+  height: auto;
+}
+</style>
