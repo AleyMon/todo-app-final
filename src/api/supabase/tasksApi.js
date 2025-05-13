@@ -59,3 +59,55 @@ export const deleteTaskById = async (taskId) => {
     return []
   }
 }
+
+// Actualizar una tarea
+export const updateTask = async (taskId, updatedFields) => {
+  try {
+    const { data, error } = await supabase
+      .from(TABLE_NAME)
+      .update(updatedFields)
+      .eq('id', taskId)
+      .select()
+
+    if (error) throw new Error(error.message)
+
+    return data
+  } catch (error) {
+    console.error('Error al actualizar tarea:', error.message)
+    return []
+  }
+}
+
+export const toggleCompleteTask = async (taskId, completed) => {
+  try {
+    const { data, error } = await supabase
+      .from('tasks')
+      .update({ completed: !completed }) // invierte el valor
+      .eq('id', taskId)
+      .select()
+
+    if (error) throw error
+
+    return data[0]
+  } catch (error) {
+    console.error('Error al alternar estado de tarea:', error.message)
+    return null
+  }
+}
+
+export const toggleFavoriteTask = async (taskId, favorite) => {
+  try {
+    const { data, error } = await supabase
+      .from('tasks')
+      .update({ favorite: !favorite }) // Alternar el valor
+      .eq('id', taskId)
+      .select()
+
+    if (error) throw error
+
+    return data[0] // Devuelve la tarea actualizada
+  } catch (error) {
+    console.error('Error al alternar estado de favorita:', error.message)
+    return null
+  }
+}
