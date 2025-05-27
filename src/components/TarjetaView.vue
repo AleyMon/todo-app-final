@@ -85,3 +85,78 @@ const toggleFavorite = () => {
     />
   </div>
 </template>
+
+<style scoped>
+.tarjeta {
+  flex: 1 1 25%; /* O ajusta según el diseño */
+  max-width: 35%; /* revisar sea similar al de las tarjetas estándar */
+  min-width: 20rem;
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* separación entre los bloques de contenido */
+  word-break: normal;
+  overflow-wrap: break-word;
+  align-items: stretch;
+  position: relative;
+}
+
+.check-fav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.description {
+  text-overflow: ellipsis; /* Muestra "..." al final */
+}
+
+.task-title {
+  margin-bottom: 1rem; /* Separar título de la descripción */
+}
+
+.task-content {
+  flex-grow: 1; /* Permite que el contenido ocupe todo el espacio disponible */
+  margin-bottom: 0.5rem; /* Separar contenido de la parte inferior */
+}
+
+.bottom-content {
+  margin-top: auto; /* Empuja el contenido hacia abajo */
+  padding-top: 0.5rem; /* Espacio entre los botones y la parte superior */
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.due-date,
+.status {
+  margin-bottom: 0.5rem; /* Separar fecha y estado */
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+  height: 2rem;
+  justify-content: space-between;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  padding: 0.25rem;
+  transition: transform 0.2s ease;
+  color: #444;
+}
+
+.icon-btn:hover {
+  transform: scale(1.2);
+  color: #000;
+}
+
+</style>
