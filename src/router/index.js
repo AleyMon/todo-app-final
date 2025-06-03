@@ -44,12 +44,16 @@ const router = createRouter({
 
 router.beforeEach(async (to, from, next) => {
   const auth = useAuthStore()
-  await auth.fetchUser()
+
+  // Solo fetch si no tenemos usuario cargado (optimización)
+  if (!auth.user) {
+    await auth.fetchUser()
+  }
 
   if (to.meta.requiresAuth && !auth.user) {
-    next('/auth') // Redirige al login si no está autenticado
+    next('/auth')
   } else if (to.path === '/auth' && auth.user) {
-    next('/home') // Redirige al home si el usuario ya está autenticado
+    next('/home')
   } else {
     next()
   }
