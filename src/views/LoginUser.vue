@@ -237,4 +237,44 @@ const loginWithGitHub = async () => {
 .github-btn:hover {
   background-color: #d6b97c;
 }
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .image-section,
+  .login-box {
+    width: 100%;
+    height: auto;
+    border-left: none;
+  }
+
+  .image-section {
+    height: 200px;
+  }
+
+  .login-box {
+    padding: 1.5rem 2rem;
+    box-shadow: none;
+  }
+
+  .logo {
+    width: 8rem;
+    margin-bottom: 1rem;
+  }
+
+  .login-form {
+    max-width: 100%;
+  }
+
+  .input {
+    font-size: 13px;
+  }
+  .logo {
+    width: auto;
+    height: auto;
+  }
+}
 </style>

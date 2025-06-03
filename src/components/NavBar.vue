@@ -69,5 +69,9 @@ header.navbar {
   object-fit: contain;
 }
 
-
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 0.5rem;
+  }
+}
 </style>

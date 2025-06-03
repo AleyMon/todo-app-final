@@ -134,3 +134,120 @@ textarea {
   font-size: 14px;
 }
 </style>
+
+<style scoped>
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Fondo semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  cursor: default; /* Cambiar a 'default' para evitar el cursor de mano en el fondo */
+  pointer-events: none; /* Desactivar la interacción en el fondo */
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 60vw;
+  height: 60vh;
+  min-width: 300px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+  pointer-events: all; /* Hacer la ventana modal interactiva */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 1rem;
+}
+
+.input-title,
+.input-date {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.textarea-desc {
+  flex-grow: 2;
+  padding: 0.75rem;
+  font-size: 1rem;
+  resize: none;
+  height: 100%;
+  min-height: 150px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.modal-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.modal-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* Botón Guardar: color tipo ℹ️ */
+.modal-btn.save {
+  background-color: #70b4cf;
+  color: white;
+}
+
+.modal-btn.save:hover {
+  background-color: #40acd6;
+}
+
+/* Botón Cerrar: gris suave */
+.modal-btn.close {
+  background-color: #cccccc;
+  color: #333;
+}
+
+.modal-btn.close:hover {
+  background-color: #999999;
+  color: white;
+}
+
+.buttons-modal {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .buttons-modal {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+</style>

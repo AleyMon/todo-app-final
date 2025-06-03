@@ -45,3 +45,36 @@ const handleUpdatePassword = async () => {
   }
 }
 </script>
+
+<template>
+  <AuthFormBase
+    title="Actualizar contraseña"
+    description="Introduce tu nueva contraseña para continuar."
+    :onSubmit="handleUpdatePassword"
+  >
+    <input
+      v-model="password"
+      type="password"
+      placeholder="Nueva contraseña"
+      class="input"
+      required
+      name="new-password"
+    />
+    <template #button>Actualizar contraseña</template>
+  </AuthFormBase>
+</template>
+
+<style scoped>
+.input {
+  background: #fafafa;
+  border: 1px solid #dbdbdb;
+  border-radius: 0.25rem;
+  padding: 0.56rem 0.5rem;
+  font-size: 14px;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #a8a8a8;
+}
+</style>

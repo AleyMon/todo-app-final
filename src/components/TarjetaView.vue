@@ -159,4 +159,28 @@ const toggleFavorite = () => {
   color: #000;
 }
 
+@media (max-width: 1280px) {
+  .buttons {
+    flex-direction: column; /* En pantallas más pequeñas, los botones se apilan */
+    width: 100%; /* Los botones ocuparán todo el ancho disponible */
+    align-items: stretch;
+    height: auto;
+    flex-direction: row;
+  }
+  .tarjeta {
+    justify-content: center;
+    min-width: 20rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .buttons {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: nowrap; /* En pantallas grandes no deben envolverse */
+    flex-direction: row;
+  }
+}
 </style>

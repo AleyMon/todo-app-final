@@ -93,3 +93,55 @@ const markFavorite = async (taskId, favoriteStatus) => {
   }
 }
 </script>
+
+<style scoped>
+.task-container {
+  width: 90%; /* O cualquier otra medida que prefieras */
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  box-sizing: border-box;
+  margin-top: 7rem;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 2rem; /* Espacio entre las tarjetas */
+  align-items: center;
+}
+
+.card-container .form-card {
+  max-width: 30%; /* Tamaño consistente para la tarjeta de Nueva Tarea */
+}
+
+.center-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem; /* Ajusta el espacio según sea necesario */
+  flex: 1 1 25%; /* O ajusta según el diseño */
+  max-width: 30%; /* Asegúrate de que este valor sea similar al de las tarjetas estándar */
+  min-width: 280px;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 1.5rem;
+  font-family: inherit; /* O explícito si estás usando uno global */
+}
+@media (max-width: 450px) {
+  .task-container {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .card-container {
+    flex-wrap: nowrap;
+  }
+}
+</style>

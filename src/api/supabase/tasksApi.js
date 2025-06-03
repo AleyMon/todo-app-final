@@ -24,7 +24,8 @@ export const createTask = async (
   title,
   description,
   due_date,
-
+  favorite = false,
+  completed = false,
 ) => {
   try {
     const {
@@ -34,7 +35,7 @@ export const createTask = async (
 
     const { data, error } = await supabase
       .from(TABLE_NAME)
-      .insert({ title, description, due_date, user_id: user.id })
+      .insert({ title, description, due_date, favorite, completed, user_id: user.id })
       .select()
 
     if (error) throw new Error(error.message)
