@@ -20,7 +20,7 @@ Aplicación web para gestionar tareas personales con autenticación. Permite cre
 
 - **Vue 3** con Composition API
 - **Pinia** para manejo de estado global
-- **Vue Router** para navegación
+- **Vue Router** para navegación con protección de rutas
 - **Supabase** para autenticación y base de datos
 - **Vite** como entorno de desarrollo
 
@@ -96,12 +96,71 @@ taskStore.js maneja todas las tareas y acciones (fetch, create, update, delete).
 tasksApi.js encapsula todas las funciones que se comunican con Supabase.
 authStore.js guarda y verifica el estado de autenticación del usuario.
 App.vue y router/index.js conectan todo con Vue Router y la vista principal.
+Manejo de errores traducidos para UX clara
 
 ## Autentificacion
 
 Login y registro se manejan a través de Supabase Auth.
 Cuando un usuario inicia sesión correctamente, se redirige a HomeView.vue.
 Al cerrar sesión se borra el estado de authStore y se vuelve a la página de login.
+Hay rutas protegidas: el NavBar no se muestra en rutas como /auth o /reset-password.
+Logout seguro desde cualquier vista mediante LogoutButton.vue.
+
+## Funcionalidad Principal
+
+a) Listado de tareas (TaskList.vue)
+Renderiza tareas por usuario, incluyendo botones de acción:
+Editar
+Eliminar
+Favorito
+Completado
+
+b) Añadir tareas (TaskNew.vue)
+Muestra un botón flotante con el símbolo +.
+Abre un modal (TaskEditorModal.vue) para crear nuevas tareas.
+
+c) Edición de tareas
+Modal reutilizable para crear/editar tareas.
+Permite cambiar:
+Título
+Descripción
+Fecha
+Estado de completado
+Estado de favorito
+
+d) Tareas individuales (TarjetaView.vue)
+Vista clara y accesible.
+Muestra título, descripción truncada, fecha, y botones rápidos.
+
+## API de Supabase (tasksApi.js)
+
+1. Todas las acciones CRUD son asincrónicas.
+2. Funciones:
+   getAllTasks(userId)
+   createTask(...)
+   updateTask(taskId, fields)
+   deleteTaskById(id)
+   toggleCompleteTask(id)
+   toggleFavoriteTask(id)
+
+Se utiliza supabase.from(TABLE).select().eq(...) para todas las operaciones filtradas por usuario.
+
+## Diseño Responsive y UI
+
+El diseño es minimalista y responsivo:
+Componentes adaptados a pantallas móviles.
+Modales adaptados a 60vh para buen manejo visual.
+Iconografía clara: ✅, ⭐, 🗑️, ✏️, etc.
+LoadingSpinner.vue cubre carga inicial o fetch prolongado.
+
+## Escalabilidad y mejoras futuras
+
+- Posibles mejoras:
+  Filtros por tareas completadas / favoritas.
+  Notificaciones o recordatorios con fechas.
+  Compartir tareas entre usuarios.
+  Paginación o búsqueda.
+  Dark Mode.
 
 ## Dependencias principales
 
